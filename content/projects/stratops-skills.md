@@ -1,52 +1,63 @@
 ---
-title: "StratOps Skills — seeding an internal AI ecosystem"
-date: 2026-03-01
-description: "Five McKinsey-structured strategy skills published to Xero's internal Claude Enterprise marketplace — the first plugin on the platform. Three other departments followed. A proof of concept for AI adoption through capability sharing."
-tags: ["Claude Enterprise", "AI adoption", "skills", "strategy", "product"]
-weight: 3
-ShowToc: true
+title: "Stratops Skills"
+description: ""
+date: 2026-06-10
+params:
+  githubUrl: "https://github.com/bleighk/stratops-skills"
+  stars: 0
+  language: ""
+tags: []
+weight: 1
+ShowToc: false
 cover:
   hidden: true
 ---
 
-## The problem
-
-When Xero adopted Claude Enterprise, the natural adoption pattern was individual — each person using the model as a better search engine or a faster drafting tool. That's valuable, but it's the smallest version of what was possible.
-
-The gap: Xero's strategy team had years of structured problem-solving methodology accumulated from MBB engagements. That methodology lived in people's heads, in decks, in the way senior strategists framed problems. It wasn't accessible to a finance analyst trying to structure a business case, or a product manager trying to facilitate a prioritisation session.
-
-Skills could change that — if anyone actually built them.
-
-## The approach
-
-I built five skills following McKinsey-structured problem-solving methodology and published them to Xero's internal Claude Enterprise plugin marketplace:
-
-- **Brainstorm** — structured divergent thinking with explicit MECE framing
-- **Hypothesis** — hypothesis tree construction from a problem statement
-- **Research** — structured secondary research with source discipline
-- **Storyline** — top-down, SCR-structured narrative from a brief
-- **Slides** — slide structure from a storyline, ready for deck assembly
-
-The design principle throughout: each skill should be usable by someone with no MBB background. The methodology is embedded in the prompts; the user just needs to know what problem they're solving.
-
-I published the first version in early 2026 — the first plugin on Xero's internal marketplace. Then I waited.
-
-## The outcome
-
-Three departments — HR, Design, and Engineering — built their own skills and published them to the marketplace within weeks, using the StratOps Skills plugin as a reference. In each case, I provided light support during the build: a conversation about what the skill should do, a review of the first draft prompt, feedback on the test outputs.
-
-The pattern that emerged is the one I had hypothesised: once one team sees that another team has built something useful, the activation energy for their own build drops significantly. The marketplace creates a visibility layer that individual Claude use does not.
-
-<!-- DIRECTIONAL: precise adoption/usage figures available if Brad confirms public. -->
-
-## What I learned
-
-**Skills are shared infrastructure.** The value of a skill isn't just to the person who built it — it's to every person in the organisation who encounters the same problem type. Building skills is an act of institutional knowledge codification, which is a very different frame from "I built a useful prompt."
-
-**The first mover sets the template.** Because StratOps was the first plugin, it implicitly defined what a skill looked like — its format, its level of instruction, its scope. The three departments that followed all used a similar structure. Template effects are real in internal AI adoption.
-
-**Mix-and-match is where the agility comes from.** A finance analyst running a Hypothesis skill, a product manager using a Storyline skill, a designer using a Research skill — the same infrastructure producing different outputs for different functions. The StratOps Skills plugin is proof that this is achievable at a small team's effort level. The question is what has to be true to make it the default.
+[View on GitHub →](https://github.com/bleighk/stratops-skills)
 
 ---
 
-*Tech: Claude Enterprise · custom skill prompts · internal plugin marketplace*
+# Xero Strategy & Ops Skills
+
+A collection of skills used by Xero's Strategy & Ops team. Covers structured problem solving toolkit commonly used by Management Consulting firms (e.g., McKinsey, BCG, Bain etc.). Plugin suite covers: domain research, structured brainstorming, MECE hypothesis trees, and Pyramid Principle executive communications, and slide generation.
+
+## Skills
+
+### /brainstorm
+
+Guides you through a structured ideation session using proven creative techniques. Helps you generate a large volume of ideas before narrowing down — useful for solving problems, exploring opportunities, or unblocking creative thinking.
+
+**Invoke:** `/brainstorm` or "help me brainstorm [topic]"
+
+### /research
+
+Researches a market, industry, or competitive landscape using live web data and produces a structured report. Covers market size, competitors, regulations, and technology trends.
+
+**Invoke:** `/research` or "research [topic] for me"
+
+### /hypothesis
+
+Helps you structure a strategic question into a clear, testable framework before jumping to answers. Useful when you need to frame a business problem, build an analytical plan, or prepare a recommendation.
+
+**Invoke:** `/hypothesis` or "help me structure [question]"
+
+### /storyline
+
+Turns your ideas or analysis into a clear, executive-ready narrative using the Pyramid Principle — conclusion first, supported by evidence. Useful for briefing notes, board papers, and presentations.
+
+**Invoke:** `/storyline` or "help me write a briefing on [topic]"
+
+### /slides
+
+Builds Xero StratOps slide decks in the official "Xero 2026 (StratOps)" theme — correct master layouts, typography, brand colours, and house style. Outputs a `.pptx` that opens natively as Google Slides when uploaded to Drive. Useful for board papers, EGM updates, XLT presentations, and any executive-facing deck.
+
+**Invoke:** `/slides` or "create a StratOps deck on [topic]"
+
+## Limitations
+
+- `research` requires web search tools. Without them the skill will abort at startup.
+- `hypothesis` and `storyline` widget rendering requires the `visualize` MCP server. Without it, both skills still run but will not produce the interactive output.
+- `brainstorm` is optimised for long ideation sessions.
+- `slides` downloads the StratOps template directly from Google Drive on each run. It requires the Google Drive MCP and access to the source file — without either, it falls back to a local copy if available.
+- Glean search tools (`glean_default`) are bundled with the plugin and require OAuth authorisation on first use. You will be prompted to authenticate through your browser.
+

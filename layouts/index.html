@@ -1,0 +1,10 @@
+{{- define "main" }}
+{{- partial "index_profile.html" . }}
+{{- if .Content }}
+<div class="post-content md-content" style="margin-top: 2rem;">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+{{- end }}

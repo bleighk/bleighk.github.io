@@ -13,7 +13,6 @@ outputs:
   home:
     - HTML
     - RSS
-    - JSON  # required for PaperMod search
 
 module:
   imports:
@@ -22,31 +21,30 @@ module:
 params:
   env: production
   title: Brad Knight
-  description: >-
-    Strategy and applied AI — part strategist, part builder, part translator
-    between the two.
+  description: "Strategy and applied AI at Xero. Ex-BCG and Deloitte."
   author: Brad Knight
 
-  # --- Home page (homeInfoParams mode) ---
-  homeInfoParams:
-    Title: "Brad Knight"
-    Content: >-
-      I work at the intersection of strategy and applied AI — a consulting-trained
-      architect (BCG, Deloitte) who now builds and ships AI agents for non-engineering
-      business problems. Part strategist, part builder, part translator between the two.
-
-
-      Currently at Xero: strategy ops delegate on the company-wide AI transformation,
-      and building production agents that cut weeks of manual work to minutes.
+  # --- Home page (profile mode — shows photo) ---
+  profileMode:
+    enabled: true
+    title: "Brad Knight"
+    subtitle: "Strategy and applied AI at Xero. Ex-BCG and Deloitte."
+    imageUrl: "/images/avatar.jpg"
+    imageWidth: 200
+    imageHeight: 200
+    imageTitle: "Brad Knight"
+    buttons:
+      - name: Projects
+        url: /projects/
+      - name: Resume
+        url: /brad-knight-resume.pdf
 
   # --- Social icons ---
   socialIcons:
     - name: github
       url: https://github.com/bleighk
     - name: linkedin
-      url: https://www.linkedin.com/in/bradleyknight2/
-    - name: rss
-      url: /index.xml
+      url: https://www.linkedin.com/in/bradleyknight/
 
   # --- Display settings ---
   ShowReadingTime: true
@@ -57,28 +55,11 @@ params:
   ShowWordCount: false
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
   comments: false
   hidemeta: false
   hideSummary: false
   showtoc: true
   tocopen: false
-
-  # --- Search ---
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    limit: 10
-    keys:
-      - title
-      - permalink
-      - summary
-      - content
 
   # --- Assets ---
   assets:
@@ -94,34 +75,21 @@ params:
 
 menu:
   main:
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 10
     - identifier: projects
       name: Projects
       url: /projects/
+      weight: 10
+    - identifier: resume
+      name: Resume
+      url: /brad-knight-resume.pdf
       weight: 20
-    - identifier: posts
-      name: Posts
-      url: /posts/
-      weight: 30
-    - identifier: now
-      name: Now
-      url: /now/
-      weight: 40
-    - identifier: search
-      name: "🔍"
-      url: /search/
-      weight: 50
 
 markup:
   goldmark:
     renderer:
-      unsafe: true  # allows raw HTML in content (needed for Loom embeds)
+      unsafe: true  # allows raw HTML in content (Loom embeds etc.)
   highlight:
     noClasses: false
-    anchorLineNos: true
     codeFences: true
     guessSyntax: true
     lineNos: true

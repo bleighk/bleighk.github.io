@@ -1,3 +1,7 @@
 public/
 resources/
 .hugo_build.lock
+
+# Auto-generated project pages (produced by scripts/fetch_repos.py at build time)
+content/projects/*.md
+!content/projects/_index.md
